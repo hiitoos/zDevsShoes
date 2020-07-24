@@ -1,23 +1,27 @@
 import java.util.Date;
 
 public class Cliente {
-    long id_Clientes;
-    String nombre;
-    String apellido1;
-    String apellido2;
-    String email;
-    int telefono;
-    Date fecha_nacimiento;
+    private long id_Clientes;
+    private String nombre;
+    private String apellido1;
+    private String apellido2;
+    private String email;
+    private int telefono;
+    private Date fecha_nacimiento;
 
-    public Cliente(String nombre, String apellido1, String apellido2, String email, int telefono, Date fecha_nacimiento) {
-        this.nombre = nombre;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
-        this.email = email;
-        this.telefono = telefono;
-        this.fecha_nacimiento = fecha_nacimiento;
+    public Cliente(long id_Clientes, String nombre, String apellido1, String apellido2, String email, int telefono, Date fecha_nacimiento) {
+        setId_Clientes(id_Clientes);
+        setNombre(nombre);
+        setApellido1(apellido1);
+        setApellido2(apellido2);
+        setEmail(email);
+        setTelefono(telefono);
+        setFecha_nacimiento(fecha_nacimiento);
     }
 
+    public void setId_Clientes(long id_Clientes) {
+        this.id_Clientes = id_Clientes;
+    }
     public long getId_Clientes() {
         return id_Clientes;
     }
