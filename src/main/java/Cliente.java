@@ -1,7 +1,7 @@
 import java.util.Date;
 
 public class Cliente {
-    int id_Clientes;
+    long id_Clientes;
     String nombre;
     String apellido1;
     String apellido2;
@@ -18,7 +18,7 @@ public class Cliente {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public int getId_Clientes() {
+    public long getId_Clientes() {
         return id_Clientes;
     }
 
