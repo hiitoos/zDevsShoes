@@ -1,12 +1,12 @@
 import java.util.Date;
 
 public class Zapatillas {
-    long id_zapatillas;
-    String genero;
-    String modelo;
-    String color;
-    float talla;
-    float precio;
+    private long id_zapatillas;
+    private String genero;
+    private String modelo;
+    private String color;
+    private float talla;
+    private float precio;
 
     public Zapatillas(long id_zapatillas, String genero, String modelo, String color, float talla, float precio) {
         setId_zapatillas(id_zapatillas);
