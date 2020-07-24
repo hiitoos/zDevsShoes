@@ -22,10 +22,6 @@ public class metodoPago {
         return idMetodo;
     }
 
-    public void setIdMetodo(long idMetodo) {
-        this.idMetodo = idMetodo;
-    }
-
     @Override
     public String toString() {
         return "metodoPago{" +
