@@ -1,8 +1,8 @@
 # zDevsShoes
 
 ## Cambio entre ramas
-git checkout develop # pasamos a la rama develop
-git checout master # pasamos a la rama master
+git checkout develop # pasamos a la rama develop  
+git checkout master # pasamos a la rama master  
 
 ## Uso simple de git flow
 
