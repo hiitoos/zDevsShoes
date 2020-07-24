@@ -1,15 +1,25 @@
-public class metodoPago {
+public class MetodoPago {
     private long idMetodo;
     private String tipo;
 
     //Constructor
-    public metodoPago(String tipo) {
-        this.tipo = tipo;
+    public MetodoPago(long idMetodo, String tipo) {
+        setIdMetodo(idMetodo);
+        setTipo(tipo);
     }
 
-    public metodoPago() {
+    public MetodoPago() {
     }
+
     //Getters & setters
+    public long getIdMetodo() {
+        return idMetodo;
+    }
+
+    public void setIdMetodo(long idMetodo) {
+        this.idMetodo = idMetodo;
+    }
+
     public String getTipo() {
         return tipo;
     }
@@ -18,9 +28,6 @@ public class metodoPago {
         this.tipo = tipo;
     }
 
-    public long getIdMetodo() {
-        return idMetodo;
-    }
 
     @Override
     public String toString() {
