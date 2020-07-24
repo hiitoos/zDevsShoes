@@ -10,11 +10,13 @@ public class Descuento {
     public Descuento() {
     }
 
-    public Descuento(Date fecha_inicio, Date fecha_final, float porcentaje, String descripcion) {
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_final = fecha_final;
-        this.porcentaje = porcentaje;
-        this.descripcion = descripcion;
+    public Descuento(long id_descuentos, Date fecha_inicio, Date fecha_final, float porcentaje, String descripcion) {
+        setId_descuentos(id_descuentos);
+        setFecha_inicio(fecha_inicio);
+        setFecha_final(fecha_final);
+        setPorcentaje(porcentaje);
+        setDescripcion(descripcion);
+
     }
 
     public long getId_descuentos() {

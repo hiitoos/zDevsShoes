@@ -19,9 +19,12 @@ public class Cliente {
         setFecha_nacimiento(fecha_nacimiento);
     }
 
+    public Cliente(){}
+
     public void setId_Clientes(long id_Clientes) {
         this.id_Clientes = id_Clientes;
     }
+
     public long getId_Clientes() {
         return id_Clientes;
     }
