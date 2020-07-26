@@ -10,7 +10,7 @@ public class SelectQuery {
         ResultSet rs;
         try {
             if (var.equals("total")) {
-                SQL = "SELECT COUNT(*) FROM pedidos ";
+                SQL = "SELECT COUNT(*) FROM pedidos WHERE pagado = 1";
                rs = stmt.executeQuery(SQL);
                 while (rs.next()) {
                     int count = rs.getInt("count(*)");
