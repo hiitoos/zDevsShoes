@@ -17,10 +17,7 @@ public class SelectQuery {
             }
 
             if (var.equals("pais")){
-                String SQL = "SELECT COUNT(*) FROM pedidos ";
-                //select clientes.nombre from direcciones left join clientes on clientes.id_cliente = direcciones.id_cliente
-                // UNION select paises.nombre from direcciones left join paises on direcciones.id_pais=paises.id_pais;
-                //todo make this sentence coherent. Now it returns clientes.nombre and paises.nombre but in one column
+                String SQL = "SELECT paises.id_pais, paises.nombre, count(paises.id_pais) FROM direcciones LEFT JOIN paises ON direcciones.id_pais = paises.id_pais group by paises.id_pais;";
                 ResultSet rs = stmt.executeQuery(SQL);
                 while (rs.next()) {
                     int count = rs.getInt("count(*)");
