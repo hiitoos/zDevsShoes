@@ -52,6 +52,7 @@ public class Main {
     }
 
     public static void listarUsuarios(){
+        new SelectQuery(stmt, "usuario");
 
     }
 }
