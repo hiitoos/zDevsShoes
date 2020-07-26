@@ -43,7 +43,17 @@ public class SelectQuery {
                 while (rs.next()) {
                     String nombre = rs.getString("nombre");
                     String email = rs.getString("email");
-                    System.out.println ("El usuario " + nombre + " - " + email + " tiene pedidos pendiente de pago");
+                    System.out.println ("El usuario " + nombre + " - " + email + " tiene pedidos pendientes de pago");
+                }
+            }
+
+            if (var.equals("mascompras")){  ///////// comprobar con conexión
+                SQL = "SELECT clientes.nombre, clientes.apellido1, COUNT(pedidos.id_cliente) FROM clientes, pedidos WHERE clientes.id_cliente = pedidos.id_cliente GROUP BY clientes.id_cliente LIMIT 1";
+                rs = stmt.executeQuery(SQL);
+                while (rs.next()) {
+                    String nombre = rs.getString("nombre");
+                    String apellido1 = rs.getString("apellido1");
+                    System.out.println ("Cliente con más compras realizadas: " + nombre + " " + apellido1);
                 }
             }
 
