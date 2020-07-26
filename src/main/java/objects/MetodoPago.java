@@ -1,3 +1,5 @@
+package objects;
+
 public class MetodoPago {
     private long idMetodo;
     private String tipo;
