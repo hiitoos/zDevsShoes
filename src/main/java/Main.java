@@ -22,17 +22,22 @@ public class Main {
 
     public static void menu(){
         System.out.println("Selecciona una opción");
-        Scanner menu = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         do {
             System.out.println("--- Menú principal ---");
             System.out.println("1.- Ver ventas totales");
             System.out.println("2.- Ver ventas por pais");
             System.out.println("3.- Listar usuarios");
             System.out.println("0.- Salir");
+            choice = scanner.nextInt();
             switch (choice){
                 case 1 -> ventasTotales();
                 case 2 -> ventasPais();
                 case 3 -> listarUsuarios();
+                case 0 -> {
+                    System.out.println("Hasta luego");
+                    System.exit(1);
+                }
                 default -> System.out.println("Seleccion incorrecta");
             }
         }while (choice!=0);
@@ -43,7 +48,7 @@ public class Main {
     }
 
     public static void ventasPais(){
-        new SelectQuery(stmt, "paises");
+        new SelectQuery(stmt, "pais");
     }
 
     public static void listarUsuarios(){

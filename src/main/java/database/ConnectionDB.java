@@ -10,6 +10,12 @@ public class ConnectionDB {
 
     //Connection method
     public ConnectionDB(){
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error al registrar el driver de MySQL: " + e);
+        }
+
         try{
             this.conn = DriverManager.getConnection(
                     "jdbc:mysql://34.105.161.110:3306/zdevsshoes",

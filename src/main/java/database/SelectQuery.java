@@ -17,11 +17,12 @@ public class SelectQuery {
             }
 
             if (var.equals("pais")){
-                String SQL = "SELECT paises.id_pais, paises.nombre, count(paises.id_pais) FROM direcciones LEFT JOIN paises ON direcciones.id_pais = paises.id_pais group by paises.id_pais;";
+                String SQL ="SELECT paises.id_pais, paises.nombre, COUNT(pedidos.id_pedidos) as total FROM direcciones LEFT JOIN clientes ON direcciones.id_cliente=clientes.id_Clientes LEFT JOIN paises ON direcciones.id_pais = paises.id_pais LEFT JOIN pedidos ON pedidos.id_cliente = clientes.id_Clientes WHERE pedidos.pagado = 1 GROUP BY paises.id_pais";
                 ResultSet rs = stmt.executeQuery(SQL);
                 while (rs.next()) {
-                    int count = rs.getInt("count(*)");
-                    System.out.println("La cantidad total de ventas por país es de " + count);
+                    String nombre = rs.getString("nombre");
+                    int total = rs.getInt("total");
+                    System.out.println("Se han realizado " + total + " ventas en " + nombre);
                 }
             }
         }catch (SQLException exception) {
