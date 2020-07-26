@@ -29,6 +29,7 @@ public class Main {
             System.out.println("2.- Ver ventas por pais");
             System.out.println("3.- Listar usuarios");
             System.out.println("4.- Usuarios con pedidos sin finalizar");
+            System.out.println("5.- Usuarios con más compras realizadas");
             System.out.println("0.- Salir");
             choice = scanner.nextInt();
             switch (choice){
@@ -36,6 +37,7 @@ public class Main {
                 case 2 -> ventasPais();
                 case 3 -> listarUsuarios();
                 case 4 -> pedidosNoFinalizados();
+                case 5 -> listarTopCliente();
                 case 0 -> {
                     System.out.println("Hasta luego");
                     System.exit(1);
@@ -58,7 +60,11 @@ public class Main {
 
     }
 
-    public static void pedidosNoFinalizados(){   ////////////////verificar con conexión !!!!
+    public static void pedidosNoFinalizados(){
         new SelectQuery(stmt, "nofinalizados");
+    }
+
+    public static void listarTopCliente(){    //verificar con conexión
+        new SelectQuery(stmt, "mascompras");
     }
 }
