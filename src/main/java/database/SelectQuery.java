@@ -53,7 +53,7 @@ public class SelectQuery {
                 while (rs.next()) {
                     String nombre = rs.getString("nombre");
                     String apellido1 = rs.getString("apellido1");
-                    System.out.println (nombre + " " + apellido1 + "es el cliente que más compras ha realizado.");
+                    System.out.println ("Cliente con más compras realizadas: " nombre + " " + apellido1);
                 }
             }
 
