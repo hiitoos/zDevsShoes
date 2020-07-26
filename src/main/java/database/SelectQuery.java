@@ -37,16 +37,13 @@ public class SelectQuery {
                 }
             }
 
-            if (var.equals("nofinalizados")) { ////////// verificar con conexión !!!!
-                SQL = "SELECT nombre, apellido1, apellido2, email FROM clientes INNER JOIN pedidos ON (clientes.idCliente = pedidos.idCliente) WHERE pedidos.pagado = 0";
+            if (var.equals("nofinalizados")) {
+                SQL = "SELECT DISTINCT nombre, email FROM clientes INNER JOIN pedidos ON (clientes.id_clientes = pedidos.id_cliente) WHERE pedidos.pagado = 0";
                 rs = stmt.executeQuery(SQL);
-                System.out.println ("Los usuarios que no han finalizado compras son: ");
                 while (rs.next()) {
                     String nombre = rs.getString("nombre");
-                    String apellido1 = rs.getString("apellido1");
-                    String apellido2 = rs.getString("nombre");
                     String email = rs.getString("email");
-                    System.out.println (nombre + apellido1 + apellido2 + email );
+                    System.out.println ("El usuario " + nombre + " - " + email + " tiene pedidos pendiente de pago");
                 }
             }
 
