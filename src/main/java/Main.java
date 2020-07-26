@@ -1,8 +1,10 @@
 import database.ConnectionDB;
 import database.SelectQuery;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.text.Normalizer;
 import java.util.Scanner;
 
 public class Main {
