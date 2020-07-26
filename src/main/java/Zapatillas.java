@@ -1,4 +1,3 @@
-import java.util.Date;
 
 public class Zapatillas {
     private long id_zapatillas;
