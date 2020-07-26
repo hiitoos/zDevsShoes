@@ -21,5 +21,9 @@ public class ConnectionDB {
         } catch(SQLException exception){
             System.out.println("Error: "+ exception);
         }
-    };
+    }
+
+    public Connection getConnection(){
+        return this.conn;
+    }
 }
