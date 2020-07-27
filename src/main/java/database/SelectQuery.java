@@ -64,12 +64,13 @@ public class SelectQuery {
             }
 
             else if (var.equals("mascompras")){
-                SQL = "SELECT nombre, apellido1, apellido2, COUNT(*) FROM clientes LEFT JOIN pedidos ON (clientes.id_Clientes = pedidos.id_cliente) WHERE pedidos.pagado = 1 GROUP BY id_cliente ORDER BY COUNT(*)";
+                SQL = "SELECT nombre, apellido1, apellido2, COUNT(*)  FROM clientes LEFT JOIN pedidos ON (clientes.id_Clientes = pedidos.id_cliente) WHERE pedidos.pagado = 1 GROUP BY id_cliente ORDER BY COUNT(*) DESC";
                 rs = stmt.executeQuery(SQL);
                 while (rs.next()) {
                     String nombre = rs.getString("nombre");
                     String apellido1 = rs.getString("apellido1");
-                    System.out.println ("Cliente con más compras realizadas: " + nombre + " " + apellido1);
+                    int count = rs.getInt("count(*)");
+                    System.out.println (nombre + " " + apellido1 + " ha realizado " + count + " compras.");
                 }
             }
 
