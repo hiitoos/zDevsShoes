@@ -14,6 +14,7 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         sq = new SelectQuery();
         menu();
+        sq.closeConn();
     }
 
     public static void menu(){
