@@ -9,23 +9,18 @@ import java.util.Scanner;
 
 public class Main {
     static int choice=0;
-    static ConnectionDB dataBase;
-    static Connection conn;
-    static java.sql.Statement stmt;
+    static SelectQuery sq;
 
     public static void main(String[] args) throws SQLException {
-        dataBase = new ConnectionDB();
-        conn = dataBase.getConnection();
-        stmt = conn.createStatement();
+        sq = new SelectQuery();
         menu();
-        stmt.close();
-        conn.close();
     }
 
     public static void menu(){
-        System.out.println("Selecciona una opción");
         Scanner scanner = new Scanner(System.in);
+
         do {
+            System.out.println("************************************************************");
             System.out.println("--- Menú principal ---");
             System.out.println("1.- Ver ventas totales");
             System.out.println("2.- Ver ventas por pais");
@@ -33,13 +28,17 @@ public class Main {
             System.out.println("4.- Usuarios con pedidos sin finalizar");
             System.out.println("5.- Usuarios con más compras realizadas");
             System.out.println("0.- Salir");
+            System.out.println("************************************************************");
+
+            System.out.print("Selecciona una opción: ");
             choice = scanner.nextInt();
+
             switch (choice){
-                case 1 -> ventasTotales();
-                case 2 -> ventasPais();
-                case 3 -> listarUsuarios();
-                case 4 -> pedidosNoFinalizados();
-                case 5 -> listarTopCliente();
+                case 1 -> sq.launchQuery("total");
+                case 2 -> sq.launchQuery("pais");
+                case 3 -> sq.launchQuery("usuario");
+                case 4 -> sq.launchQuery("nofinalizados");
+                case 5 -> sq.launchQuery("mascompras");
                 case 0 -> {
                     System.out.println("Hasta luego");
                     System.exit(1);
@@ -47,26 +46,5 @@ public class Main {
                 default -> System.out.println("Seleccion incorrecta");
             }
         }while (choice!=0);
-    }
-
-    public static void ventasTotales(){
-        new SelectQuery(stmt, "total");
-    }
-
-    public static void ventasPais(){
-        new SelectQuery(stmt, "pais");
-    }
-
-    public static void listarUsuarios(){
-        new SelectQuery(stmt, "usuario");
-
-    }
-
-    public static void pedidosNoFinalizados(){
-        new SelectQuery(stmt, "nofinalizados");
-    }
-
-    public static void listarTopCliente(){    //verificar con conexión
-        new SelectQuery(stmt, "mascompras");
     }
 }
