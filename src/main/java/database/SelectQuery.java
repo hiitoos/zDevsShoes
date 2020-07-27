@@ -48,7 +48,7 @@ public class SelectQuery {
             }
 
             if (var.equals("mascompras")){  ///////// comprobar con conexión
-                SQL = "SELECT nombre, apellido1, apellido2 FROM clientes WHERE id_cliente IN (\tSELECT id_cliente, COUNT(*) FROM pedidos WHERE pagado = 1 GROUP BY id_cliente HAVING COUNT(*) >= ALL(SELECT COUNT(*) FROM pedidos group by id_cliente))";
+                SQL = "SELECT nombre, apellido1, apellido2 FROM clientes WHERE id_Clientes IN (\tSELECT id_cliente, COUNT(*) FROM pedidos WHERE pagado = 1 GROUP BY id_cliente HAVING COUNT(*) >= ALL(SELECT COUNT(*) FROM pedidos group by id_Clientes))";
                 rs = stmt.executeQuery(SQL);
                 while (rs.next()) {
                     String nombre = rs.getString("nombre");
